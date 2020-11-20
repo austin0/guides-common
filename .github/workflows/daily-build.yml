@@ -63,10 +63,10 @@ jobs:
         run: |
           logsPath=$(sudo find . -name "console.log");
           sudo cat $logsPath | grep Launching
-          sudo cp $logsPath/console.log $GITHUB_WORKSPACE
+          sudo cp $logsPath/ $GITHUB_WORKSPACE/logs
       - name: Archive server logs if failed
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: console.log
-          path: $GITHUB_WORKSPACE
+          path: $GITHUB_WORKSPACE/logs

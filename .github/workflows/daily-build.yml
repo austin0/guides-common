@@ -63,10 +63,10 @@ jobs:
         run: |
           logsPath=$(sudo find . -name "console.log");
           sudo cat $logsPath | grep Launching
-          cp ${{ matrix.repos }}/finish/target/liberty/wlp/usr/servers/guideServer/logs/ $GITHUB_WORKSPACE
+          cp $logsPath/console.log $GITHUB_WORKSPACE
       - name: Archive server logs if failed
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: server-logs
+          name: console.log
           path: $GITHUB_WORKSPACE

@@ -2,10 +2,8 @@
 name: Daily build testing
 
 on:
-  repository_dispatch:
-    types: [ daily-build ]
-  schedule:
-    cron: 0 0 * * *
+  push:
+    branches: master
 
 jobs:
   get-repos:

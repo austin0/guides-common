@@ -63,9 +63,8 @@ jobs:
         run: |
           logsPath=$(sudo find . -name "console.log");
           sudo cat $logsPath | grep Launching
-          exit 1
       - name: Archive server logs if failed
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: server-logs
